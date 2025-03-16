@@ -1,0 +1,41 @@
+# .gitignore文件的基本语法：
+# "#"：表示注释
+# "!"：非
+# "/"：目录层级
+# "*"：通配符
+
+.gradle
+build/
+/protocol/build/
+/protocol/out/
+out/
+# 忽略所有的target文件夹
+target/
+!gradle/wrapper/gradle-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+.idea/workspace.xml
+
+application-sout.yml
