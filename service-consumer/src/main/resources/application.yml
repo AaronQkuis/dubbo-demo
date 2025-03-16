@@ -1,40 +1,17 @@
 # Nacos配置中心配置
-#nacos:
-#  config:
-#    server-addr: 192.168.0.120:8848
-#    data-id: dubbo-consumer
-#    group: DEFAULT_GROUP
-#    bootstrap:
-#      enable: true
-#      log-enable: true
-#    type: yaml
-#    namespace: public
-#    auto-refresh: true
-
-server:
-  port: 8082
-
-spring:
-  application:
-    name: dubbo-consumer
-
-dubbo:
-  application:
-    id: ${spring.application.name}
-    name: ${spring.application.name}
-    version: 1.0.0
-    logger: slf4j
-    register-consumer: false
-  registry:
-    protocol: nacos
-    username: nacos
-    password: nacos
+nacos:
+  config:
+    server-addr: 192.168.0.120:8848
+    data-id: dubbo-consumer
     group: DEFAULT_GROUP
-    address: 192.168.0.120:8848?username=nacos&password=nacos
-    server: true
+    bootstrap:
+      enable: true
+      log-enable: true
+    type: yaml
+    namespace: public
+    auto-refresh: true
 
-swagger:
-  enabled: true
+
 
 
 

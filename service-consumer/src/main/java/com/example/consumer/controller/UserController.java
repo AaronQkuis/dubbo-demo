@@ -28,21 +28,21 @@ public class UserController {
     }
 
     @ApiOperation("获取所有用户")
-    @GetMapping
+    @GetMapping("/list")
     public ApiResultI18n<List<User>> listUsers() {
         log.info("Listing all users");
         return ApiResultI18n.success(userService.listAllUsers());
     }
 
     @ApiOperation("创建用户")
-    @PostMapping
+    @PostMapping("/create")
     public ApiResultI18n<Boolean> createUser(@RequestBody User user) {
         log.info("Creating user: {}", user);
         return ApiResultI18n.success(userService.createUser(user));
     }
 
     @ApiOperation("更新用户信息")
-    @PutMapping
+    @PutMapping("/update")
     public ApiResultI18n<Boolean> updateUser(@RequestBody User user) {
         log.info("Updating user: {}", user);
         return ApiResultI18n.success(userService.updateUser(user));

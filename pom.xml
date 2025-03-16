@@ -25,8 +25,8 @@
         <mysql.version>8.0.22</mysql.version>
         <lombok.version>1.18.20</lombok.version>
         <nacos.version>1.4.6</nacos.version>
-        <nacos.config.version>0.2.7</nacos.config.version>
-        <dubbo.version>2.7.21</dubbo.version>
+        <nacos.config.version>0.2.12</nacos.config.version>
+        <dubbo.version>2.7.23</dubbo.version>
         <swagger2.version>2.7.0</swagger2.version>
         <fastjson2.version>2.0.8</fastjson2.version>
         <hutool.version>5.2.3</hutool.version>
@@ -60,7 +60,6 @@
                 <version>${dubbo.version}</version>
             </dependency>
 
-
             <!-- Nacos -->
             <dependency>
                 <groupId>com.alibaba.nacos</groupId>
@@ -68,11 +67,11 @@
                 <version>${nacos.version}</version>
             </dependency>
 
-            <!--<dependency>
+            <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>nacos-config-spring-boot-starter</artifactId>
                 <version>${nacos.config.version}</version>
-            </dependency>-->
+            </dependency>
 
 
             <!-- MyBatis Plus -->
@@ -143,15 +142,36 @@
     </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <configuration>
+                        <excludes>
+                            <exclude>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                            </exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+    <profiles>
+        <profile>
+            <id>provider</id>
+            <modules>
+                <module>service-provider</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>consumer</id>
+            <modules>
+                <module>service-consumer</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
